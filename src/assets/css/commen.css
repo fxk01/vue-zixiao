@@ -1,0 +1,262 @@
+body{
+  /*background: #f8f8f8 !important;*/
+}
+
+ul,ol{list-style:none;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button {margin:0;padding:0}  /* 初始化标签在所有浏览器中的margin、padding值 */
+fieldset,img {border:0 none}  /* 重置fieldset（表单分组）、图片的边框为0*/
+
+dl,ul,ol,menu,li {list-style:none}   /* 重置类表前导符号为onne,menu在HTML5中有效 */
+
+button {
+  border:0 none;
+  outline: none;
+  background-color:transparent;cursor:pointer}  /* 重置表单button按钮效果 */
+
+a {color:#666;text-decoration:none}  /* 重置链接a标签 */
+a:active, a:hover {text-decoration:none}   /* 重置链接a标签的鼠标滑动效果 */
+
+a {outline: none;}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  /*font: inherit;*/
+  vertical-align: baseline;
+}
+
+ol, ul {
+  text-align: inherit;
+  list-style: none;
+}
+
+.fl{
+  float: left;
+}
+
+.fr{
+  float: right;
+}
+
+.box {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.flex{
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+}
+
+/*flex下面的子集需要是块级元素*/
+.flex-1{
+  -webkit-box-flex:1;
+  -webkit-flex:1;
+  -ms-flex:1;
+  flex:1;
+}
+
+.flex-row{
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.flex-col{
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.flex-justify-start{
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.flex-justify-between{
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.flex-justify-around{
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: justify;
+  justify-content: space-around;
+}
+
+.flex-justify-center{
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.flex-align-center{
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  -ms-grid-row-align: center;
+  align-items: center;
+}
+
+/*基线对齐*/
+.flex-align-baseline{
+  -webkit-box-align: baseline;
+  -webkit-align-items: baseline;
+  -ms-flex-align: baseline;
+  -ms-grid-row-align: baseline;
+  align-items: baseline;
+}
+
+.limt-1{
+  overflow: hidden;/*超出部分隐藏*/
+  white-space: nowrap;/*不换行*/
+  text-overflow:ellipsis;/*超出部分文字以...显示*/
+}
+
+.limt-2{
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.limt-4{
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.limt-5{
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+ul, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cursor_hand {
+  cursor: pointer;
+}
+
+.main-border{
+  border: 1px solid #eee;
+  border-radius: 2px;
+}
+
+.main-left{
+  width: 840px;
+}
+.pad30 {
+  padding: 30px;
+}
+
+.noAnsWrapper{
+  line-height: 36px;
+  text-align: center;
+  background-color: #eee;
+  font-size: 14px;
+  color: #909090;
+}
+
+.is-fixed{
+  position: fixed;
+  z-index: 10;
+}
+
+.bg-range{
+  font-weight: normal;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 8px;
+  padding: 0px 6px;
+}
+
+/*lv1、2、3、4*/
+.bg-range-1{
+  border: 1px solid #3b72ff;
+  color: #3b72ff !important;
+  background-color: #f4f7ff !important;
+}
+
+/*lv5、6、7、8*/
+.bg-range-2{
+  border: 1px solid #ffc514;
+  color: #ffc514 !important;
+  background-color: #fffdf4 !important;
+}
+
+/*lv9、10*/
+.bg-range-3{
+  border: 1px solid #ff6577;
+  color: #ff6577 !important;
+  background-color: #fff6f4 !important;
+}
+
+
+/*lv11*/
+.bg-range-4{
+  border: 1px solid #7626d7;
+  color: #7626d7 !important;
+  background-color: #f5ecff !important;
+}
+
+/*小火箭*/
+.roket{
+  display: none;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #fff;
+  position: fixed;
+  bottom: 30px;
+  right: 12px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(26,26,26,0.1);
+  color: #8590a6;
+  font-size: 14px;
+  text-align: center;
+}
+
+.roket .Zi{
+  margin-top: 6px;
+}
+
+.roket .Zi,.roket .Zi:hover {
+  fill: #8590a6;
+}

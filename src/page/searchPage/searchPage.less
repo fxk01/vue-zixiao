@@ -1,0 +1,193 @@
+.searchPage {
+  min-width: 1300px;
+  .search-container {
+    background-color: #f8f8f8;
+    min-height: 1200px;
+    .el-carousel__item h3 {
+      color: #475669;
+      font-size: 18px;
+      opacity: 0.75;
+      line-height: 30px;
+      margin: 0;
+    }
+    .el-carousel__item:nth-child(2n) {
+      background-color: #99a9bf;
+    }
+    .el-carousel__item:nth-child(2n+1) {
+      background-color: #d3dce6;
+    }
+    .main{
+      width: 1160px;
+      margin: 0 auto;
+      overflow: hidden;
+      .search-total {
+        margin: 30px 0;
+        font-size: 18px;
+        font-weight: bold;
+        color: #30409d;
+      }
+    }
+    .main-left{
+      width: 840px;
+      min-height: 750px;
+    }
+    .main-right{
+      width: 300px;
+      margin-left: 20px;
+      margin-top: 83px;
+    }
+    .tab {
+      .tab-item {
+        position: relative;
+        font-size: 18px;
+        color: #2e3e9d;
+        //border-right: 1px solid #2e3e9d;
+        &:after {
+          content: "";
+          width: 1px;
+          height: 16px;
+          background: #2e3e9d;
+          position: absolute;
+          right: 0;
+          bottom: 5px;
+        }
+        i {
+          display: block;
+          width: 26px;
+          height: 26px;
+          margin-right: 6px;
+        }
+        .hot_i {
+          background: url("../../assets/imgs/walk-hot-icon.png") 0 0 no-repeat;
+        }
+        .news_i {
+          background: url("../../assets/imgs/walk-news-icon.png") 0 0 no-repeat;
+        }
+        .no_i {
+          background: url("../../assets/imgs/walk-noans-icon.png") 0 0 no-repeat;
+        }
+      }
+      .tab-item:last-child:after {
+        width: 0;
+        height: 0;
+      }
+      .active {
+        color: #505050;
+        &:after {
+          background: #505050;
+        }
+      }
+    }
+    .newItem {
+      position: relative;
+      background-color: #fff;
+      padding: 58px 0 24px;
+      margin-bottom: 20px;
+      //margin-bottom: 26px;
+      width: 840px;
+      .dot_three{
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        top: 10px;
+        right: 16px;
+        background:url("../../assets/imgs/dot-three.png") 0 0 no-repeat;
+      }
+      .title {
+        padding: 0 26px;
+        color: #323232;
+        font-weight: 700;
+        line-height: 30px;
+        font-size: 16px;
+      }
+      .hot-title{
+        margin-bottom: 16px;
+      }
+      .newstitle{
+        margin-bottom: 18px;
+      }
+      .content{
+        max-height: 120px;
+        overflow: hidden;
+        padding: 0 26px;
+        color: #323232;
+        line-height: 24px;
+        //line-height: 19px;
+        font-size: 14px;
+        margin-bottom: 16px;
+        img{
+          max-width: 100%;
+        }
+      }
+      .bottom {
+        padding: 16px 16px 0 26px;
+        .bottomL{
+          //height: 26px;
+          height: 40px;
+          font-size: 14px;
+          .timer{
+            width: 94px;
+            height: 26px;
+            color: #ff7e00;
+            line-height: 26px;
+            text-align: center;
+            background-color: #fff3eb;
+            margin-right: 10px;
+            border: 1px solid #fff3eb;
+            border-radius: 2px;
+
+            i{
+              //position: relative;
+              //top: 1px;
+              display: block;
+              width: 14px;
+              height: 14px;
+              background: url("../../assets/imgs/icon-knock.png") 0 0 no-repeat;
+              margin-right: 6px;
+            }
+          }
+
+          .main_askNum,.main_focusNum,.main_focus{
+            width: 78px;
+            height: 26px;
+            line-height: 26px;
+            text-align: center;
+            background-color: #fefefe;
+            margin-right: 10px;
+            border: 1px solid #eaeaea;
+            border-radius: 2px;
+          }
+
+          .main_focusVal{
+            font-weight: bold;
+            line-height: 26px;
+            height: 26px;
+            color: #2e41a1;
+            background-color: #ebfaff;
+            border: 1px solid #ebfaff;
+            border-radius: 2px;
+          }
+        }
+
+        .peep_btn{
+          width: 80px;
+          height: 24px;
+          border: 1px solid #ffbf01;
+          border-radius: 2px;
+          line-height: 26px;
+          font-size: 14px;
+          color: #fff;
+          background-color: #ffbf01;
+
+          i{
+            display: block;
+            width: 18px;
+            height: 12px;
+            background: url("../../assets/imgs/icon-view.png") 0 0 no-repeat;
+            margin-right: 6px;
+          }
+        }
+      }
+    }
+  }
+}

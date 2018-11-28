@@ -1,0 +1,319 @@
+#walkWrap{
+
+  .el-loading-spinner{
+    top: 90px;
+  }
+
+  .quill-wrap {
+    margin-top: 300px;
+  }
+
+  .container {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1160px;
+  }
+  .container:after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+
+  .main{
+    width: 1160px;
+    //width: 100%;
+    //max-width: 1160px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #f8f8f8;
+  }
+
+  .main-left{
+    width: 840px;
+  }
+
+  .main-right{
+    width: 300px;
+    margin-top: 60px;
+    margin-left: 20px;
+  }
+
+  .tab{
+    //height: 86px;
+    left: 0;
+    top: 0;
+    height: 60px;
+
+    .tab-item{
+      height: 26px;
+      position: relative;
+      padding: 0 30px;
+      font-size: 16px;
+      font-weight: bold;
+      //border-right: 1px solid #2e3e9d;
+
+      &:after{
+        content: "";
+        width: 1px;
+        height: 16px;
+        background: #909399;
+        position: absolute;
+        right: 0;
+        bottom: 5px;
+      }
+
+      &.active{
+
+        &:after{
+          background: #2e41a1;
+        }
+      }
+
+      &.active a{
+        color: #2e41a1;
+      }
+
+      a{
+        color: #909399;
+      }
+
+
+      i{
+        display: block;
+        width: 26px;
+        height: 26px;
+        margin-right: 6px;
+      }
+
+      .hot_i{
+        background: url("../../assets/imgs/walk-hot-icon.png") 0 0 no-repeat;
+      }
+
+      .news_i{
+        background: url("../../assets/imgs/walk-news-icon.png") 0 0 no-repeat;
+      }
+
+      .no_i{
+        background: url("../../assets/imgs/walk-noans-icon.png") 0 0 no-repeat;
+      }
+    }
+
+    .tab-item:last-child:after{
+      width: 0;
+      height: 0;
+    }
+
+  }
+
+  //热门问题、最新问题
+  .newItem {
+    position: relative;
+    background-color: #fff;
+    padding: 58px 0 24px;
+    margin-bottom: 10px;
+
+    .sort_num{
+      //width: 36px;
+      //height: 44px;
+      width: 26px;
+      height: 28px;
+      padding-top: 4px;
+      text-align: center;
+      position: absolute;
+      font-size: 12px;
+      color: #fff;
+      top: 0;
+      left: 10px;
+      background-color: #ec2e2e;
+
+      &:after{
+        border: solid transparent;
+        content: ' ';
+        height: 0;
+        bottom: 0;
+        position: absolute;
+        width: 0;
+      }
+
+      &:after {
+        border-width: 6px;
+        border-bottom-color: #fff;
+        //left: 12px;
+        left: 7px;
+      }
+
+    }
+
+    //三个点
+    .dot_three{
+      width: 26px;
+      height: 26px;
+      position: absolute;
+      top: 10px;
+      right: 16px;
+      background:url("../../assets/imgs/dot-three.png") 0 0 no-repeat;
+    }
+
+    .reportBox {
+      position: absolute;
+      top: 36px;
+      width: 84px;
+      right: -24px;
+      background-color: darkcyan;
+      text-align: center;
+
+      p{
+        line-height: 24px;
+      }
+
+      &:after{
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 14px solid darkcyan;
+        content: "";
+        position: absolute;
+        top: -14px;
+        left: 50%;
+        margin-left: -7px;
+      }
+    }
+
+    .title {
+      padding: 0 26px;
+      color: #323232;
+      font-weight: 700;
+      line-height: 30px;
+      font-size: 16px;
+    }
+
+    .hot-title{
+      margin-bottom: 16px;
+    }
+
+    .newstitle{
+      margin-bottom: 18px;
+    }
+
+    .content{
+      max-height: 38px;
+      padding: 0 26px;
+      color: #323232;
+      line-height: 19px;
+      font-size: 14px;
+      margin-bottom: 16px;
+      //_height:expression((document.documentElement.clientHeight||document.body.clientHeight)<38?"38px":"");
+      overflow:hidden;
+
+      img{
+        max-width: 100%;
+      }
+    }
+
+    .bottom{
+      padding: 16px 16px 0 26px;
+
+      .bottomL{
+        //height: 26px;
+        height: 40px;
+        font-size: 14px;
+
+        .timer{
+          width: 94px;
+          height: 26px;
+          color: #ff7e00;
+          //line-height: 26px;
+          text-align: center;
+          background-color: #fff3eb;
+          margin-right: 10px;
+          border: 1px solid #fff3eb;
+          border-radius: 2px;
+
+          i{
+            display: block;
+            width: 14px;
+            height: 14px;
+            background: url("../../assets/imgs/icon-knock.png") 0 0 no-repeat;
+            margin-right: 6px;
+          }
+        }
+
+        .main_askNum,.main_focusNum,.main_focus{
+          width: 78px;
+          height: 26px;
+          line-height: 26px;
+          text-align: center;
+          background-color: #fefefe;
+          margin-right: 10px;
+          border: 1px solid #eaeaea;
+          border-radius: 2px;
+        }
+
+        .main_focus{
+          display: block;
+          height: 26px;
+          line-height: 26px;
+          font-size: 14px;
+        }
+
+        .main_focusVal{
+          display: block;
+          font-weight: bold;
+          line-height: 26px;
+          height: 26px;
+          color: #2e41a1;
+          background-color: #ebfaff;
+          border: 1px solid #ebfaff;
+          border-radius: 2px;
+        }
+      }
+
+      .peep_btn{
+        //width: 58px;
+        width: 80px;
+        height: 24px;
+        border: 1px solid #ffbf01;
+        border-radius: 2px;
+        line-height: 26px;
+        font-size: 14px;
+        color: #fff;
+        background-color: #ffbf01;
+
+        i{
+          display: block;
+          width: 18px;
+          height: 12px;
+          background: url("../../assets/imgs/icon-view.png") 0 0 no-repeat;
+          margin-right: 6px;
+        }
+      }
+    }
+  }
+
+  .newItem1{
+    padding: 50px 0 24px;
+
+    .peep_btn1{
+      color: #fff;
+      width: 90px;
+      height: 26px;
+      line-height: 26px;
+      font-size: 14px;
+      color: #fff;
+      border-radius: 2px;
+      background-color: #2e41a1;
+
+      i{
+        display: block;
+        width: 11px;
+        height: 12px;
+        background: url("../../assets/imgs/icon-write-ans.png") 0 0 no-repeat;
+        background-size: 11px 12px;
+        margin-right: 6px;
+      }
+    }
+  }
+
+}
+
+
