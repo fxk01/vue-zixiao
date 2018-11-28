@@ -1,8 +1,8 @@
 import axIos from 'axios';
 axIos.defaults.timeout = 10000;
 axIos.defaults.headers['X-Requested-With'] = 'XMLHttpRequest';
-// axIos.defaults.baseURL = 'http://192.168.10.182:8081/';
-axIos.defaults.baseURL = 'http://zxtest.hefupb.com/';
+axIos.defaults.baseURL = 'http://192.168.10.182:8081/';
+// axIos.defaults.baseURL = 'http://zxtest.hefupb.com/';
 // axIos.defaults.baseURL = 'http://hegui.hefupb.com/';
 
 function getCookie(c_name) {
@@ -23,7 +23,7 @@ function getCookie(c_name) {
 let tokenme='eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1MjM2QSIsInN1YiI6IntcIm9wZW5pZFwiOlwibzFHbTMxWV8xUUNqdjV2QWNVVHhxRERYanlzVVwiLFwiaWRcIjpcIjIxNlwifSIsImlhdCI6MTU0Mjc3ODA1OSwiZXhwIjoxNTc0MzE0MDU5fQ.9Cv0KQXm7Hz56_o8g_e4F4WoZ6oR3Z7jPl5MKAxMJ6A'
 let tokenhuaming = 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1MjM2QSIsInN1YiI6IntcIm9wZW5pZFwiOlwibzFHbTMxVkhjRFE2M0diNWVTSVVaWWVIc181c1wiLFwiaWRcIjpcIjIwM1wifSIsImlhdCI6MTUzOTg0NTI3OCwiZXhwIjoxNTcxMzgxMjc4fQ.47HiRzynuWlSe7vgOsRnYFZaJ8V7AXGVO1bNTe1TYTA'
 let tokenkaiming='eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1MjM2QSIsInN1YiI6IntcIm9wZW5pZFwiOlwibzFHbTMxVHA5VWNRS3E4a2RFTFB4MDhJUXh2MFwiLFwiaWRcIjpcIjQ2XCJ9IiwiaWF0IjoxNTM5MjQyMjgxLCJleHAiOjE1NzA3NzgyODF9.2YYEE-KlcvoLpaF8Ib8dhb1DC61usg-AyzRTIjvluJA';
-axIos.defaults.headers.token =  getCookie('token')?getCookie('token'):'';
+axIos.defaults.headers.token =  getCookie('token')?getCookie('token'):tokenme;
 
 export default {
   fetchGet(url, params = {}) {

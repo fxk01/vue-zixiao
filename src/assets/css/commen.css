@@ -96,12 +96,20 @@ ol, ul {
   justify-content: flex-start;
 }
 
+.flex-justify-end{
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
 .flex-justify-between{
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
+
 
 .flex-justify-around{
   -webkit-box-pack: justify;

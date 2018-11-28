@@ -1,17 +1,17 @@
 import http from './public';
 //获取问题
 export const questDetail = (params) => {
-  return http.fetchPost('/search/dosrch/echo/question/detail', params)
+  return http.fetchGet('/search/dosrch/echo/question/detail', params)
 };
 
 // 回答
 export const answerList = (params) => {
-  return http.fetchGet('/search/dosrch/echo/question/answer/list', params)
+  return http.fetchPost('/search/dosrch/echo/question/answer/list', params)
 };
 
 // 补充的回答
 export const supplementAnswer = (params) => {
-  return http.fetchGet('/qa/answer/supplement', params)
+  return http.fetchPost('/qa/answer/supplement', params)
 };
 // 关注
 export const questFollow = (params) => {
@@ -44,7 +44,7 @@ export const answerCommentGet = (params) => {
 
 // 新增评论答案功能（添加评论）
 export const answerComment = (params) => {
-  return http.fetchGet('/answer/comment/do', params)
+  return http.fetchPost('/answer/comment/do', params)
 };
 
 //删除我的评论
@@ -67,7 +67,6 @@ export const acommentCancelLike = (params) => {
 export const myAnswerdetail = (params) => {
   return http.fetchGet('/me/answer/list/detail', params)
 };
-
 
 
 // 回答  （--我的消息）

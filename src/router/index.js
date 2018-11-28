@@ -18,6 +18,7 @@ const searchPage = () => import('../page/searchPage/searchPage.vue');
 const minenews = () => import('../page/minenews/minenews.vue');
 const sysnews = () => import('../page/sysnews/sysnews.vue');
 const writeAnswer = () => import('../page/writeAnswer/writeAnswer.vue');
+const integral = () => import('../page/integral/integral.vue');
 const notfount = () => import('../page/404/404.vue');
 Vue.use(Router);
 
@@ -73,6 +74,11 @@ export default new Router({
       path: '/writeAnswer',
       name: 'writeAnswer',
       component: writeAnswer
+    },
+    {
+      path: '/integral',
+      name: 'integral',
+      component: integral
     },
     {
       path: "*",

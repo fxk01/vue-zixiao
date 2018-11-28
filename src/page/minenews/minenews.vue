@@ -40,7 +40,6 @@
           </div>
         </aside>
       </div>
-    <!--</div>-->
 
     <div id="scanBox" style="display: none">
       <shareQrCode></shareQrCode>
@@ -218,7 +217,6 @@
 
       showAskBoxFn(args) {
         this.isShowqsnBox=args;
-        console.log(this.isShowqsnBox);
       },
 
       closeModal(args) {

@@ -93,22 +93,11 @@
     props: ['isShowqsnBox'],
     data() {
       return {
-        // dynamicTags: ['标签一', '标签二', '标签三'],
         isdisabled: false,
         questKey:[],
         isShowAddtag: true,
         qlabelIds: [],                 //标签组 id
         tagList: [],
-        // tagList: [{
-        //   id:1 ,
-        //   content:'股权私募'
-        // },{
-        //   id: 2,
-        //   content:'私募股权'
-        // },{
-        //   id: 3,
-        //   content:'私募股权'
-        // }],      //标签组
         inputQsnTag:'',    //问题标签
         askContText:'',   //问题的内容
         anonymity:1 ,   //匿名
@@ -121,22 +110,6 @@
       if(comment_val){
         this.askContText = comment_val;
       }
-    },
-    // mounted() {
-    //   this.$nextTick(function () {
-    //     setTimeout(() =>{
-    //       if(this.$refs && this.$refs['asktextarea']){
-    //         this.$refs['asktextarea'].focus();
-    //       }
-    //     },20);
-    //   });
-    // },
-
-    updated() {
-      // this.$nextTick(function () {
-      //   console.log(this.$refs)
-      //   this.$refs['asktextarea'].focus();
-      // });
     },
 
     methods: {
