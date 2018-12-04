@@ -1,8 +1,8 @@
 <template>
   <div class="box sharescanBox">
     <div class="share-close"></div>
-    <!--<img src="../assets/imgs/zx-scan.png" alt="">-->
-    <img src="../assets/imgs/jimu.png" alt="">
+    <img src="../assets/imgs/zx-scan.jpg" alt="">
+    <!--<img src="../assets/imgs/jimu.png" alt="">-->
     <p>打开微信扫描二维码，将网页分享到朋友圈</p>
   </div>
 </template>
@@ -26,7 +26,7 @@
     background-color: #fff;
     border-radius: 4px;
     img{
-      /*width: 170px;*/
+      width: 182px;
       /*height: 170px;*/
       margin-top: 25px;
       margin-bottom: 38px;

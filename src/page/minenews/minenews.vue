@@ -29,9 +29,7 @@
             </ul>
           </div>
           <div v-else class="noAnsWrapper main-border">{{noData}} ~</div>
-
         </div>
-
 
         <aside class="fr main-right">
           <operation :style="operationStyle" @showAskBox="showAskBoxFn" :sendData="isShowqsnBox"></operation>

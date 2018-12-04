@@ -17,12 +17,12 @@
         </div>
         <div v-if="!noData">
           <ul class="main-content">
-            <li v-for="(productItem) in productList" :key="productItem.id" class="box item">
+            <li v-for="(productItem,index) in productList" :key="productItem.id" class="box item">
               <img :src="productItem.imgUrl" class="thumb-img" />
               <p class="item-title">{{productItem.description}}</p>
               <div class="flex flex-justify-between flex-align-center">
                 <div class="item-point"><span>{{productItem.price}}</span> 积分</div>
-                <button class="exchangeBtn" @click="showPointDialogFn()">兑换</button>
+                <button class="exchangeBtn" @click="showPointDialogFn(productItem.type,index)">兑换</button>
               </div>
             </li>
           </ul>
@@ -51,10 +51,10 @@
         <el-form-item label="手机">
           <el-input v-model="integral_form.phone" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="电子邮箱">
+        <el-form-item v-if="productItemType && String(productItemType) != '0'" label="电子邮箱">
           <el-input v-model="integral_form.email" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="收货地址">
+        <el-form-item v-if="productItemType && String(productItemType) != '1'"  label="收货地址">
           <el-input
             v-model="integral_form.address"
             type="textarea"
@@ -85,20 +85,22 @@
     name: 'integral',
     data() {
       return {
+        checkProduct:{},    //选中的商品
+        productItemType:-1, //type:0 实体书 1：电子书  2：实体+电子书
         integral_form:{
           name:'',
           phone:'',
           email:'',
           address:''
         },
-        url:'http://zxtest.hefupb.com/',
+        url:'http://hegui.hefupb.com/',
         pointmoney:0,  //初始化积分余额；
         showPointDialog:false,
         noData:'',
         isShowqsnBox:false,  //最后要改成false
         productList: [],
         page: 1,
-        pagesize: 10,
+        pagesize: 100,
         type: 1 ,     //我的消息
         totalNum: 0,
         Len: 0,
@@ -125,8 +127,6 @@
     //   );
     // },
 
-
-
     methods: {
       // 当前积分可用余额
       getOwnerpointsMoneyFn() {
@@ -134,7 +134,7 @@
         integral.getOwnerpointsMoney({}).then(res => {
           if(res.data && res.code=='1001'){
             console.log(res);
-            const pointmoney = res.data.money;
+            const pointmoney = res.data;
             if(pointmoney){
               this.pointmoney=pointmoney;
             }
@@ -149,7 +149,7 @@
           page: this.page,
           pagesize: this.pagesize,
         }).then(res => {
-          if(res.data && res.code=='1001'){
+          if(res.data && res.code=='1001'){   //type:0 实体书 1：电子书  2：实体+电子书
             let productList=res.data;
             // console.log(messageData);
             let totalNum=res.ntotals;
@@ -169,7 +169,6 @@
       },
 
       showAskBoxFn(args) {
-      console.log(args);
         this.isShowqsnBox=args;
         console.log(this.isShowqsnBox);
       },
@@ -178,8 +177,14 @@
         this.isShowqsnBox = args;
       },
 
-      showPointDialogFn() {
+      showPointDialogFn(type,index) {
+        //type:0 实体书 1：电子书  2：实体+电子书
+        let productList = this.productList;
+        this.productItemType = type+'';
+        this.checkProduct = {};
+        this.checkProduct = productList[index];
         this.showPointDialog=true;
+        this.integral_form = {};
       },
 
       handlePointClose() {
@@ -188,23 +193,76 @@
 
       // 提交表单，兑换商品
       submitPointInfo() {
+        console.log(this.checkProduct);
+        let checkProduct = this.checkProduct;
+        let checkProductnew ={
+          price:'',
+          id:'',
+          'buyNum':'1'
+        };
+        checkProductnew.price = checkProduct.price;
+        checkProductnew.id = checkProduct.id;
+        let products = [];
+        products.push(checkProductnew);
         let self = this;
-        let products = [{'id':'2','buyNum':'1','price':'20'}];
-        let name = '商品';
-        let phone = '18261779540';
-        let address = '上海市松江区哈哈哈';
-        let totalMoney = '20';
+        let productItemType = String(this.productItemType);
+        let integral_form = self.integral_form;
+        console.log(integral_form);
+        // let products = [{'id':'2','buyNum':'1','price':'20'}];
+        let name = integral_form.name;
+        let phone = integral_form.phone;
+        let address = integral_form.address;
+        let email = integral_form.email;
+        let totalMoney = String(checkProduct.price);
+        if(!name || !phone){
+          alert('输入不能为空');
+          return ;
+        }
+        if(!(/^1[34578]\d{9}$/.test(phone))){
+          alert("手机号码有误，请重填");
+          return false;
+        }
+        //type:0 实体书 1：电子书  2：实体+电子书
+        if(productItemType == 1){
+          integral_form.address = '';
+          if(!email){
+            alert('输入不能为空');
+            this.integral_form = integral_form;
+            return ;
+          }
+          var re = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+          if (!re.test(email)) {
+            alert("邮箱有误，请重填");
+            return false;
+          }
+        }else if(productItemType == 2){
+          if(!email || !address){
+            alert('输入不能为空');
+            return ;
+          }
+        }else{
+          integral_form.email = '';
+          if(!address){
+            alert('输入不能为空');
+            this.integral_form = integral_form;
+            return ;
+          }
+        }
+        console.log(integral_form);
         integral.buyProduct({
           products:JSON.stringify(products),
           name:name,
           phone:phone,
           address:address,
-          totalMoney:totalMoney
+          totalMoney:totalMoney,
+          email:email
         }).then(res => {
-          if(res.data && res.code=='1001'){
-            console.log(res);
+          if(res.code=='1000'){
+            alert('恭喜你，兑换成功~');
+            self.showPointDialog = false;
+            self.getOwnerpointsMoneyFn();
           }else {
-
+            alert(res.msg?res.msg:"很遗憾，兑换失败！")
           }
         });
       },

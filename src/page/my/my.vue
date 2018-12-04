@@ -19,7 +19,7 @@
               <div class="userAvatar">
                 <el-upload
                   class="avatar-uploader"
-                  action="http://zxtest.hefupb.com/upload/avatar"
+                  action="https://hegui.hefupb.com/upload/avatar"
                   :headers=this.headers
                   :show-file-list="false"
                   :on-success="handleAvatarSuccess"

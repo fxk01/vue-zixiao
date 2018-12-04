@@ -193,7 +193,7 @@
     data() {
       return {
         // url:'http://192.168.10.182:8081/',
-        url:'http://zxtest.hefupb.com/'
+        url:'https://hegui.hefupb.com/'
       }
     },
 

@@ -185,7 +185,7 @@
                                 <img v-if="discuss.anonymity=='1'" src="../../assets/imgs/anonymityImg.png" alt="">
                                 <img v-else :src="discuss.userProfile && discuss.userProfile.avatarHttpd?discuss.userProfile.avatarHttpd:discuss.userProfile.avatarUrl" alt="">
                               </div>
-                              <span class="cursor_hand">{{discuss.userProfile?discuss.userProfile.nickName:''}}</span>
+                              <span class="cursor_hand">{{discuss.anonymity=='1'?'匿名用户':discuss.userProfile.nickName}}</span>
                             </div>
                             <p class="diss-timmer">{{discuss.cTimes}}</p>
                           </div>

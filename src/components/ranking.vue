@@ -1,57 +1,64 @@
 <template>
-  <div class="box rankingBox">
-    <div class="flex flex-justify-between rank-header">
-      <div class="flex flex-align-center headerL">
-        <img src="../assets/imgs/ranking-Leaderboard.png" alt="">
-        <span>大神积分榜</span>
+  <div>
+    <div class="box rankingBox">
+      <div class="flex flex-justify-between rank-header">
+        <div class="flex flex-align-center headerL">
+          <img src="../assets/imgs/ranking-Leaderboard.png" alt="">
+          <span>大神积分榜</span>
+        </div>
+        <div class="flex flex-align-center headerR">
+          <el-select @change="(value) => SelectChange(value)" v-model="value" placeholder="请选择">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </div>
       </div>
-      <div class="flex flex-align-center headerR">
-        <el-select @change="(value) => SelectChange(value)" v-model="value" placeholder="请选择">
-          <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-          </el-option>
-        </el-select>
+      <div class="rankHeng"></div>
+      <ul class="rankMain">
+        <li  v-for="(item,index) in getterPointsData.pointsData" :key="index" class="flex flex-justify-between flex-align-center rankItem">
+          <div class="flex flex-align-center itemL">
+            <div class="numBox">
+              <img v-if="item.currentRanking==1" src="../assets/imgs/ranking-num1.png" alt="">
+              <img v-else-if="item.currentRanking==2" src="../assets/imgs/ranking-num2.png" alt="">
+              <img v-else-if="item.currentRanking==3" src="../assets/imgs/ranking-num3.png" alt="">
+              <div class="ranknun" v-else>{{item.currentRanking}}</div>
+            </div>
+            <div class="avatarThumb">
+              <img :src="item.userProfile && item.userProfile.avatarHttpd?item.userProfile.avatarHttpd:item.userProfile.avatarUrl" alt="">
+              <!--<img src="../assets/imgs/ranking-avatar.png" alt="">-->
+            </div>
+            <div>
+              <div style="width: 100px;" class="nickname limt-1">{{item.userProfile.nickName}}</div>
+              <div :class="item.achieveClass" class="level bg-range">LV{{item.achievement}} {{item.levelHonor}}</div>
+            </div>
+          </div>
+          <div class="itemR">
+            {{item.points}}
+            <small style="font-size: 12px;color: #ddd;font-weight:normal;">分</small>
+          </div>
+        </li>
+      </ul>
+      <div v-show="getterPointsData.pointsTotals > 6" class="ranking-pagination">
+        <el-pagination style="text-align: center;margin-bottom: 14px;"
+                       layout="prev, pager, next"
+                       :small="true"
+                       :page-size="rankPageSize"
+                       :total="getterPointsData.pointsTotals"
+                       @current-change="(value) => currentRankChange(value)"
+        >
+        </el-pagination>
       </div>
     </div>
-    <div class="rankHeng"></div>
-    <ul class="rankMain">
-      <li  v-for="(item,index) in getterPointsData.pointsData" :key="index" class="flex flex-justify-between flex-align-center rankItem">
-        <div class="flex flex-align-center itemL">
-          <div class="numBox">
-            <img v-if="item.currentRanking==1" src="../assets/imgs/ranking-num1.png" alt="">
-            <img v-else-if="item.currentRanking==2" src="../assets/imgs/ranking-num2.png" alt="">
-            <img v-else-if="item.currentRanking==3" src="../assets/imgs/ranking-num3.png" alt="">
-            <div class="ranknun" v-else>{{item.currentRanking}}</div>
-          </div>
-          <div class="avatarThumb">
-            <img :src="item.userProfile && item.userProfile.avatarHttpd?item.userProfile.avatarHttpd:item.userProfile.avatarUrl" alt="">
-            <!--<img src="../assets/imgs/ranking-avatar.png" alt="">-->
-          </div>
-          <div>
-            <div style="width: 100px;" class="nickname limt-1">{{item.userProfile.nickName}}</div>
-            <div :class="item.achieveClass" class="level bg-range">LV{{item.achievement}} {{item.levelHonor}}</div>
-          </div>
-        </div>
-        <div class="itemR">
-          {{item.points}}
-          <small style="font-size: 12px;color: #ddd;font-weight:normal;">分</small>
-        </div>
-      </li>
-    </ul>
-    <div v-show="getterPointsData.pointsTotals > 6" class="ranking-pagination">
-      <el-pagination style="text-align: center;margin-bottom: 14px;"
-        layout="prev, pager, next"
-        :small="true"
-        :page-size="rankPageSize"
-        :total="getterPointsData.pointsTotals"
-        @current-change="(value) => currentRankChange(value)"
-      >
-      </el-pagination>
+    <!--积分兑换入口-->
+    <div @click="gopointFn()" class="cursor_hand" style="text-align: center;margin-top: 10px;">
+      <img style="display: inline-block" src="../assets/imgs/pointBg.jpg" alt="">
     </div>
   </div>
+
 </template>
 
 <script>
@@ -100,6 +107,9 @@
       // }
     // },
     methods: {
+      gopointFn() {
+        this.$router.push({path: '/integral'});
+      },
       SelectChange(value) {
         this.$store.dispatch(RANKING, {
           page: 1,

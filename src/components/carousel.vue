@@ -18,7 +18,7 @@
     props: ['isfather'],
     data() {
       return {
-        url:'http://zxtest.hefupb.com/',
+        url:'https://hegui.hefupb.com/',
         carouselList:[]
       }
     },

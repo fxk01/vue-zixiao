@@ -2,8 +2,8 @@
   <div class="box scanBox">
     <h4><strong>资晓</strong>小程序</h4>
     <p>可以在小程序端实时查看问答</p>
-    <img src="../assets/imgs/jimu.png" alt="">
-    <!--<img src="../assets/imgs/zx-scan.png" alt="">-->
+    <!--<img src="../assets/imgs/jimu.png" alt="">-->
+    <img style="width: 182px;" src="../assets/imgs/zx-scan.jpg" alt="">
   </div>
 </template>
 

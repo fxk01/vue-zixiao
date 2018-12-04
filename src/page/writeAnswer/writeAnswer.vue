@@ -59,7 +59,7 @@
             ImageExtend: {
               loading: true,
               name: 'file',
-              action: 'http://zxtest.hefupb.com/upload/attach',
+              action: 'https://hegui.hefupb.com/upload/attach',
               headers: (xhr) => {
                 xhr.setRequestHeader('token',this.getCookie('token'))
               },
